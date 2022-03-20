@@ -17,16 +17,23 @@ The Queue functions in a "First In, First Out" operation order. Like a line, the
 | size()         | Return the size of the <br> queue.          | ```length = len(queue)``` | O(1)        |
 | empty()        | Returns true if the <br> length of the queue <br> is zero. | ```if len(queue) == 0:``` | O(1)
 
+<br>
+
 ## Example Use Case
 
 When I listen to music on a music streaming app like Spotify I like to know what I'm listening to currently, but also what's coming up next. When Spotify organizes my streaming playlist it puts all of the songs in a queue. This streamlines for the user (and the software) what's coming next!
+
+<br>
 
 ## Problem Solving Time
 
 Now we're going to put these principles in action in our own code. Linked below is a python file that starts us off, but needs some more work solving the problem. See if you can figure it out! :)
 
-[Queues Problem]()
+[Queues Problem](https://github.com/chvia223/data-structure-tutorial/tree/main/Python%20Files)
 
+When you're finished or if you get stuck check the solution provided.
+
+<br>
 
 
 ## Reasons to Use Queues

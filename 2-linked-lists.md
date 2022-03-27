@@ -30,9 +30,9 @@ For most of your smaller sized projects you will be able to use a normal dynamic
 
 Now we're going to try using the Linked List to solve some problems. Click on the link below and try your best. When you finish or if you get stuck make sure to take a look at the provided solution.
 
-[Linked Lists Problem](https://github.com/chvia223/data-structure-tutorial/tree/main/Python%20Files)
+[Linked Lists Problem](https://github.com/chvia223/data-structure-tutorial/blob/main/Python%20Files/2-linked-lists-problem.py)
 
-[Linked Lists Solution](https://github.com/chvia223/data-structure-tutorial/tree/main/Python%20Files)
+[Linked Lists Solution](https://github.com/chvia223/data-structure-tutorial/blob/main/Python%20Files/2-linked-lists-solution.py)
 
 <br>
 

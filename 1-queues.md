@@ -29,7 +29,9 @@ When I listen to music on a music streaming app like Spotify I like to know what
 
 Now we're going to put these principles in action in our own code. Linked below is a python file that starts us off, but needs some more work solving the problem. See if you can figure it out! :)
 
-[Queues Problem](https://github.com/chvia223/data-structure-tutorial/tree/main/Python%20Files)
+[Queues Problem](https://github.com/chvia223/data-structure-tutorial/blob/main/Python%20Files/1-queues-problem.py)
+
+[Queues Solution](https://github.com/chvia223/data-structure-tutorial/blob/main/Python%20Files/1-queues-solution.py)
 
 When you're finished or if you get stuck check the solution provided.
 

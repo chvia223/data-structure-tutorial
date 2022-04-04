@@ -20,9 +20,29 @@ Python has a built in linked list data structure called the ```deque```. We will
 
 <br>
 
+For most of your smaller sized projects you will be able to use a normal dynamic or static array and be fine, but if we are ever in a scenario where data needs to be collected and stored as fast as possible, but not necessarily retrieved at that same fast speed then a Linked List will be more beneficial for you to use. For example, if you were write embedded software for a high speed camera and wanted to make sure that each frame was store in order and as fast as possible you may consider a Linked List in your implementation, especially if you don't already know how long the camera operator is going to be shooting for.
+
+<br>
+
+
 ## Example Use Case
 
-For most of your smaller sized projects you will be able to use a normal dynamic or static array and be fine, but if we are ever in a scenario where data needs to be collected and stored as fast as possible, but not necessarily retrieved at that same fast speed then a Linked List will be more beneficial for you to use. For example, if you were write embedded software for a high speed camera and wanted to make sure that each frame was store in order and as fast as possible you may consider a Linked List in your implementation, especially if you don't already know how long the camera operator is going to be shooting for.
+We're going to look at how things are added to linked lists.
+
+First, we'll need to call the appropriate method to add data to a new node.
+``` python
+from collections import deque as linked_list
+
+our_list = linked_list()
+
+our_list.append("Italy")
+```
+What's happening behind the scenes?
+
+``` python
+
+
+```
 
 <br>
 

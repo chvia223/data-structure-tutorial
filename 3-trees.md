@@ -41,16 +41,16 @@ BST.insert(5)
 What's happening behind the scenes isn't too complex. We start by checking if something has been set to the root yet. If it hasn't then we want to make sure that the first thing we add goes there.
 ``` python
 def insert(self, data):
-        """
-        Insert 'data' into the BST.  If the BST
-        is empty, then set the root equal to the new 
-        node.  Otherwise, use _insert to recursively
-        find the location to insert.
-        """
-        if self.root is None:
-            self.root = BST.Node(data)
-        else:
-            self._insert(data, self.root)
+    """
+    Insert 'data' into the BST.  If the BST
+    is empty, then set the root equal to the new 
+    node.  Otherwise, use _insert to recursively
+    find the location to insert.
+    """
+    if self.root is None:
+        self.root = BST.Node(data)
+    else:
+        self._insert(data, self.root)
 ```
 Then if the root is populated we want to called the _insert method. For this implementation, if the data is duplocated then we don't want it to be added at all. If it's not a duplicate then we'll move on to check which side of the node the data will become a child in. If it finds that there isn't an existing node in that spot then the data gets set there. Otherwise the _insert method gets called again recursively and makes the check on the next level down the tree.
 ``` python
@@ -91,7 +91,7 @@ for data in BST:
 ```
 This is possible because we did an override on the default `__iter__` method to call the `_traverse_forward` method we defined inside the class.
 ``` python
-def _traverse_forward(self, node):
+    def _traverse_forward(self, node):
         """
         Does a forward traversal (in-order traversal) through the 
         BST.  If the node that we are given (which is the current

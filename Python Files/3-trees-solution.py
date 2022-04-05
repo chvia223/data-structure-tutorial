@@ -1,12 +1,7 @@
 """
 Trees - Problem 1
 
-Scenario: 
-One of the best places to find a linked list is in the implementation of a queue. One of the best places to find queues
-in your music playing app. In this problem we are going to simulate the apps functionality. 
-
-Because we are using the built in linked list data structure we will be focussing more on how to use each of the available
-linked list methods described in the tutorial. If you are ever stuck please feel free to reference that or the solution.
+Scenario is at the bottom.
 """
 
 class BST:
@@ -39,6 +34,11 @@ class BST:
         """
         self.root = None
 
+
+##############################################
+################## CHANGES ###################
+##############################################
+
     def insert(self, data):
         """
         Insert 'data' into the BST.  If the BST
@@ -49,35 +49,41 @@ class BST:
         if self.root is None:
             self.root = BST.Node(data)
         else:
-            self._insert(data, self.root)  # Start at the root
+            # We need to pass in the score as well for cleaner comparison
+            self._insert(data, data.score, self.root)
 
-    def _insert(self, data, node):
+    # Allow for score to be passed in.
+    def _insert(self, data, score, node):
         """
         This function will look for a place to insert a node
         with 'data' inside of it.  The current sub-tree is
         represented by 'node'.  This function is intended to be
         called the first time by the insert function.
         """
-        if data == node.data:
+        # We are comparing scores now
+        if score == node.data.score:
             pass
-        elif data < node.data:
-            # The data belongs on the left side.
+        # We are comparing scores now
+        elif score < node.data.score:
+            
             if node.left is None:
-                # We found an empty spot
                 node.left = BST.Node(data)
             else:
-                # Need to keep looking.  Call _insert
-                # recursively on the left sub-tree.
-                self._insert(data, node.left)
+                # Make sure you pass in the score again
+                self._insert(data, score, node.left)
         else:
             # The data belongs on the right side.
             if node.right is None:
-                # We found an empty spot
                 node.right = BST.Node(data)
             else:
-                # Need to keep looking.  Call _insert
-                # recursively on the right sub-tree.
-                self._insert(data, node.right)
+                # Make sure you pass in the score again
+                self._insert(data, score, node.right)
+
+##############################################
+################## CHANGES ###################
+##############################################
+
+
 
     def __contains__(self, data):
         """ 
@@ -230,77 +236,60 @@ class BST:
                 return right + 1
 
 
-# NOTE: Functions below are not part of the BST class above. 
+# NOTE: This is not part of the BST class!
 
-def create_bst_from_sorted_list(sorted_list):
-    """
-    Given a sorted list (sorted_list), create a balanced BST.  If 
-    the values in the sorted_list were inserted in order from left
-    to right into the BST, then it would resemble a linked list (unbalanced). 
-    To get a balanced BST, the _insert_middle function is called to 
-    find the middle item in the list to add first to the BST.  The 
-    _insert_middle function takes the whole list but also takes a 
-    range (first to last) to consider.  For the first call, the full 
-    range of 0 to len()-1 used.
-    """
-    bst = BST()  # Create an empty BST to start with 
-    _insert_middle(sorted_list, 0, len(sorted_list)-1, bst)
-    return bst
+class TestResult:
+    def __init__(self, name, score):
+        """
+        Initialize test result with given name and score.
+        """
+        self.name = name
+        self.score = score
 
-###################
-# Start Problem 1 #
-###################
-def _insert_middle(sorted_list, first, last, bst):
-    """
-    This function will attempt to insert the item in the middle
-    of 'sorted_list' into the 'bst' tree.  The middle is 
-    determined by using indicies represented by 'first' and 'last'.
-    For example, if the function was called on:
+# Test Case
+print("\n=========== PROBLEM 1 TEST ===========")
+# Scenario: We had some people take a very important test
+#           for us and we want to be able to quickly and
+#           efficiently see the results with the person
+#           having the highest score be displayed first.
+# 
+#           The TestResult class can be seen above. We can
+#           see that each TestResult object will contain
+#           two properties.
+# 
+#           Objective 1:
+#           Modify the existing BST to sort the
+#           results based on their score.
+# 
+#           Objective 2:
+#           Insert your own code below to display the
+#           results how we'd like them.
 
-    sorted_list = [10, 20, 30, 40, 50, 60]
-    first = 0
-    last = 5
-
-    then the value 30 (index 2 which is the middle) would be added 
-    to the 'bst' (the insert function above can be used to do this).   
-
-    The result would look something like this:
-
-    30, 10, 20, 50, 40, 60
-
-    This function is intended to be called the first time by 
-    create_bst_from_sorted_list.
-
-    Try implementing this function without using recurssion.
+# Exepcted Result: Peter: 490
+#                  David: 73
+#                  Barb: 60
+#                  Chris: 44
+#                  Justin: 12
 
 
-    """
-    if (last < 0):
-        return
-    elif (int(last - first) == 1):
-        bst.insert(sorted_list[first])
-        bst.insert(sorted_list[last])
-        return
-    elif (last - first == 0):
-        bst.insert(sorted_list[first])
-        return
-    else:
-        x = ( int(last - (last - first) / 2))
-        bst.insert(sorted_list[x])
-        _insert_middle(sorted_list, first, x - 1, bst)
-        _insert_middle(sorted_list, x + 1, last, bst)
+test1 = TestResult("Barb", 60)
+test2 = TestResult("Chris", 44)
+test3 = TestResult("David", 73)
+test4 = TestResult("Justin", 12)
+test5 = TestResult("Peter", 490)
+
+results_tree = BST()
+results_tree.insert(test1)
+results_tree.insert(test2)
+results_tree.insert(test3)
+results_tree.insert(test4)
+results_tree.insert(test5)
 
 
-
-# Test Cases
-print("\n=========== PROBLEM 1 TESTS ===========")
-tree1 = create_bst_from_sorted_list([10, 20, 30, 40, 50, 60])
-tree2 = create_bst_from_sorted_list([x for x in range(127)]) # 2^7 - 1 nodes
-tree3 = create_bst_from_sorted_list([x for x in range(128)]) # 2^7 nodes
-tree4 = create_bst_from_sorted_list([42])
-tree5 = create_bst_from_sorted_list([])
-print(tree1.get_height()) # 3
-print(tree2.get_height()) # 7 .. any higher and its not balanced
-print(tree3.get_height()) # 8 .. any higher and its not balanced
-print(tree4.get_height()) # 1
-print(tree5.get_height()) # 0
+# insert code here
+# Because of how the tree is implemented we can continue using the
+# __iter__ functionality. In order for us to display the highest
+# score first we need to add the reversed() call on our results_tree.
+# This is not the only way to do this.
+for result in reversed(results_tree):
+    print(f"{result.name}: {result.score}")

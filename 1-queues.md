@@ -19,9 +19,53 @@ The Queue functions in a "First In, First Out" operation order. Like a line, the
 
 <br>
 
+When I listen to music on a music streaming app like Spotify I like to know what I'm listening to currently, but also what's coming up next. When Spotify organizes my streaming playlist it puts all of the songs in a queue. This streamlines for the user (and the software) what's coming next!
+
+<br>
+
 ## Example Use Case
 
-When I listen to music on a music streaming app like Spotify I like to know what I'm listening to currently, but also what's coming up next. When Spotify organizes my streaming playlist it puts all of the songs in a queue. This streamlines for the user (and the software) what's coming next!
+Let's go over how to add something and take something away from the queue.
+
+First we need to use the `enqueue` method to add our data to the queue. Let's add a few things.
+
+``` python
+# We have to create our queue first!
+our_queue = Queue()
+
+our_queue.enqueue(1000)
+our_queue.enqueue(12)
+our_queue.enqueue(503)
+```
+
+Now let's see what's happening behind the scenes.
+``` python
+    def enqueue(self, value):
+        """
+        Add an item to the queue
+        """
+        self.queue.append(value)
+```
+It looks very similar to adding an item to the built in list data structure. They function very similar too.
+<br>
+<br>
+Let's say our queue advanced and the next item in line now had to be removed and used. It is a very similar process.
+
+``` python
+value = our_queue.dequeue()
+```
+This will pull out the next item in the queue for us to use elsewhere in our program. Let's see how it works.
+
+``` python
+    def dequeue(self):
+        """
+        Remove the next item from the queue. 
+        """
+        value = self.queue[0]
+        del self.queue[0]
+        return value
+```
+We see that we are intializing a new value variable that will hold whatever is in the first spot of the queue. Then we make sure to delete that data from the queue so we don't double use the data. Once all of that is finished we need to return the value that was held there so it can be used outside of the queue.
 
 <br>
 

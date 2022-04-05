@@ -130,9 +130,9 @@ What is happening is we are moving all the way to left of our tree first to make
 
 Now we're going to use a `Binary Search Tree` to solve a problem. Because of it's difficulty there will only be one problem to solve. Take your time with it and if you get stuck or finish please check the solution's answer.
 
-[Trees Problem](https://github.com/chvia223/data-structure-tutorial/blob/main/Python%20Files/2-linked-lists-problem.py)
+[Trees Problem](https://github.com/chvia223/data-structure-tutorial/blob/main/Python%20Files/3-trees-problem.py)
 
-[Trees Solution](https://github.com/chvia223/data-structure-tutorial/blob/main/Python%20Files/2-linked-lists-solution.py)
+[Trees Solution](https://github.com/chvia223/data-structure-tutorial/blob/main/Python%20Files/3-trees-solution.py)
 
 <br>
 

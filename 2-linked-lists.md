@@ -29,7 +29,7 @@ For most of your smaller sized projects you will be able to use a normal dynamic
 
 We're going to look at how things are added to linked lists.
 
-First, we'll need to call the appropriate method to add data to a new node.
+First, we'll need to call the appropriate method to add data to a new node to the tail.
 ``` python
 from collections import deque as linked_list
 
@@ -37,12 +37,27 @@ our_list = linked_list()
 
 our_list.append("Italy")
 ```
+<br>
 What's happening behind the scenes?
 
 ``` python
+def insert_tail(self, value):
+    """
+    Insert a new node at the back (i.e. the tail) of the 
+    linked list.
+    """
+    new_node = LinkedList.Node(value)
 
+    if self.tail is None:
+        self.head = new_node
+        self.tail = new_node
+    else:
+        new_node.prev = self.tail
+        self.tail.next = new_node
+        self.tail = new_node
 
 ```
+This function acts in a similar way to the `append` method found in the built in Python linked list. First a new node is created that will hold the data we passed in. Then we check if the current linked list is empty. If it is then what we pass in becomes the head and the tail because it is the only value found. Otherwise, we set the old tail to our new node's previous pointer. Then we set the old tail's next pointer to the new node. Then we set the tail of the linked list to the new node. After all of that we have a new node added to our list.
 
 <br>
 

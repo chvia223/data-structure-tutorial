@@ -17,6 +17,7 @@ The Queue functions in a "First In, First Out" operation order. Like a line, the
 | size()         | Return the size of the <br> queue.          | ```length = len(queue)``` | O(1)        |
 | empty()        | Returns true if the <br> length of the queue <br> is zero. | ```if len(queue) == 0:``` | O(1)
 
+```NOTE: Both enqueue and dequeue have an efficiency of O(1) if you are using a linked list to implement this data structure. The dequeue is only O(n) here because of the Python list implementation we are using.``` 
 <br>
 
 When I listen to music on a music streaming app like Spotify I like to know what I'm listening to currently, but also what's coming up next. When Spotify organizes my streaming playlist it puts all of the songs in a queue. This streamlines for the user (and the software) what's coming next!
